@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.terminal/js/jquery.terminal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.terminal/css/jquery.terminal.min.css"/>
+</head>
+<body>
+<div>
+<script>
+
+var beep = "a";
+
+var term = $('body').terminal({
+    echo: function(arg1) {
+        this.echo(arg1);
+    },
+    rpc: 'some_file.php',
+    mastermind: function(numbers, columns){
+        if (!Number.isInteger(numbers) || !Number.isInteger(columns)){
+            this.echo("Both arguments must be integers");
+            mastermind.pop();
+        }
+        this.push(function(name2) {
+            if (name2) {
+                this.echo(name2)
+            }
+            
+        }, {prompt: ">>>", greetings: "Hoo HOo hOo"}
+        );
+    },
+    calc: {
+        add: function(a, b) {
+            this.echo(a+b);
+        },
+        sub: function(a, b) {
+            this.echo(a-b);
+        },
+        store: function(a) {
+            beep = a;
+        },
+        recall: function(){
+            this.echo(beep);
+            this.pop()
+        }
+    }
+}, { prompt: '>', greetings: "Helloo!" });
+</script>
+</div>
+</body>
+</html>
